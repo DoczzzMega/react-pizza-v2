@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './Search.module.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,6 +7,9 @@ import { setSearchValue } from '../../redux/slices/filterSlice';
 function Search() {
   const dispatch = useDispatch();
   const searchValue = useSelector((state) => state.filter.searchValue);
+  const inputRef = useRef();
+
+  console.log(inputRef);
 
   return (
     <div className={styles.root}>
@@ -26,6 +29,7 @@ function Search() {
         <line x1="21" x2="16.65" y1="21" y2="16.65" />
       </svg>
       <input
+        ref={inputRef}
         value={searchValue}
         onChange={(event) => dispatch(setSearchValue(event.target.value))}
         className={styles.input}

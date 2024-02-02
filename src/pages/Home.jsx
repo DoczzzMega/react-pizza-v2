@@ -79,7 +79,7 @@ function Home() {
       <div className="content__items">
         {(isLoading && !notFound) && [...new Array(10)].map((_, i) => <Skeleton key={i} />)}
 
-        {(!isLoading && !notFound) && itemsCrop.map((obj, i) => <PizzaBlock key={i} {...obj} />)}
+        {(!isLoading && !notFound) && itemsCrop.map((obj, i) => <PizzaBlock key={obj.id} {...obj} />)}
 
         {notFound && null}
       </div>
