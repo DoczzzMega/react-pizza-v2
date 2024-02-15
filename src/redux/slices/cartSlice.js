@@ -26,18 +26,18 @@ const cartSlice = createSlice({
                 });
             }
 
-            const findItemById = state.items.find((obj) => {
-                return obj.id === action.payload.id
-            });
+            // const findItemById = state.items.find((obj) => {
+            //     return obj.id === action.payload.id
+            // });
 
-            if (findItemById) {
-                findItemById.countById++;
-            } else {
-                // state.items.push({
-                //     ...state.items,
-                //     countById: state.items[state.items.length - 1].countById
-                // })
-            }
+            // if (findItemById) {
+            //     findItemById.countById++;
+            // } else {
+            //     state.items.push({
+            //         ...state.items,
+            //         countById: state.items[state.items.length - 1].countById
+            //     })
+            // }
 
             state.totalPrice = state.items.reduce((sum, obj) => {
                 return obj.price * obj.count + sum;
