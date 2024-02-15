@@ -22,12 +22,14 @@ function Sort() {
   };
 
   React.useEffect(() => {
-    document.body.addEventListener('click', (event) => {
+    const handleClickOutside = (event) => {
       if (!event.composedPath().includes(sortRef.current)) {
         console.log('Sort out');
         setIsOpened(false);
       }
-    });
+    }
+    document.body.addEventListener('click', handleClickOutside);
+    return () => document.body.removeEventListener('click', handleClickOutside);
   }, []);
 
   return (
