@@ -24,6 +24,10 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
     dispatch(addItem(item));
   };
 
+  const arrOfItems = useSelector(state => state.cart.itemsById[id]);
+
+  const addedCount = arrOfItems ? arrOfItems.length : 0;
+
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
@@ -68,7 +72,7 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
             />
           </svg>
           <span>Добавить</span>
-          <i>{0}</i>
+          <i>{addedCount}</i>
         </button>
       </div>
     </div>
