@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../redux/slices/cartSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
         <ul>
           {types.map((typeId, i) => (
             <li
-              key={i}
+              key={uuidv4()}
               onClick={() => setActiveType(typeId)}
               className={types.length === 1 ? 'active' : activeType === typeId ? 'active' : ''}
             >
@@ -45,7 +46,7 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
         <ul>
           {sizes.map((item, index) => (
             <li
-              key={index}
+              key={uuidv4()}
               onClick={() => setActiveSize(index)}
               className={activeSize === index ? 'active' : ''}
             >
@@ -70,7 +71,7 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
             />
           </svg>
           <span>Добавить</span>
-          <i>{addedCount}</i>
+          {addedCount > 0 && <i> {addedCount}</i>}
         </button>
       </div>
     </div>
