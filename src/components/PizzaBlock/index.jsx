@@ -5,18 +5,6 @@ import { addItem } from '../../redux/slices/cartSlice';
 function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
   const dispatch = useDispatch();
 
-  const cartItem = useSelector(state => state.cart.items.find(obj => obj.id === id));
-  const filteredItems = useSelector(state => state.cart.items.filter(obj => obj.id === id));
-  
-
-  
-  // console.log('filteredItems.length', filteredItems.length);
-
-  const addedCount = cartItem ? cartItem.count : 0;
-
-  // console.log('addedCount', addedCount);
-
-  // const actualCount 
 
   const typeNames = ['тонкое', 'традиционное'];
   const [activeType, setActiveType] = useState(0);
