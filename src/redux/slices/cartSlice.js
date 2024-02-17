@@ -35,6 +35,10 @@ const cartSlice = createSlice({
                 });
             }
 
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 9157cacb2d8ff8234266556dba4e04c01f7060b8
             state.totalPrice = state.items.reduce((sum, obj) => {
                 return obj.price * obj.count + sum;
             }, 0);
