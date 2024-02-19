@@ -5,7 +5,7 @@ import { addItem, minusItem, removeItems } from '../redux/slices/cartSlice';
 const typeNames = ['тонкое', 'традиционное'];
 const sizeValues = [26, 30, 40];
 
-function CartItem({ id, title, price, count, imageUrl, type, size }) {
+function CartItem({ id, title, price, count, imageUrl, type, size, uniqId }) {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
@@ -17,7 +17,7 @@ function CartItem({ id, title, price, count, imageUrl, type, size }) {
   };
 
   const onClickRemove = () => {
-    dispatch(removeItems({ id, type, size }));
+    dispatch(removeItems({ uniqId }));
   }
   return (
     <div className="cart__item">

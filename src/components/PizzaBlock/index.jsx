@@ -18,7 +18,8 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
       price,
       imageUrl,
       type: activeType, 
-      size: activeSize
+      size: activeSize,
+      uniqId: uuidv4()
     };
     dispatch(addItem(item));
   };
