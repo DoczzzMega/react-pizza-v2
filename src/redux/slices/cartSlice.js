@@ -57,6 +57,14 @@ const cartSlice = createSlice({
                 state.totalPrice = 0;
                 state.totalCount = 0;
             }
+            //--Из за этих строк кода краш приложения
+            const id = action.payload.id
+            state.itemsById[id] = state.itemsById[id].filter(pizza =>  pizza.type !== action.payload.type || pizza.size !== action.payload.size)
+            //--------//
+
+            state.totalCount = state.items.reduce((sum, obj) => {
+                return obj.count + sum;
+            }, 0);
         },
         clearItems(state) {
             state.items = [];

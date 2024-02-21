@@ -17,7 +17,7 @@ function CartItem({ id, title, price, count, imageUrl, type, size, uniqId }) {
   };
 
   const onClickRemove = () => {
-    dispatch(removeItems({ uniqId }));
+    dispatch(removeItems({ uniqId, id, type, size }));
   }
   return (
     <div className="cart__item">

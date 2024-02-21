@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearItems } from '../redux/slices/cartSlice';
+import { v4 as uuidv4 } from 'uuid';
+
 
 import CartItem from '../components/CartItem';
 
@@ -92,7 +94,7 @@ function Cart() {
         </div>
         <div className="content__items">
           {
-            items.map(item => <CartItem key={item.id}  {...item} />)
+            items.map(item => <CartItem key={uuidv4()}  {...item} />)
           }
         </div>
         <div className="cart__bottom">
