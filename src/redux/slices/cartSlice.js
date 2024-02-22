@@ -49,12 +49,21 @@ const cartSlice = createSlice({
             if (findItem && findItem.count > 1) {
                 findItem.count--;
             }
+
+            state.totalPrice = state.items.reduce((sum, obj) => {
+                return obj.price * obj.count + sum;
+            }, 0);
+
+            state.totalCount = state.items.reduce((sum, obj) => {
+                return obj.count + sum;
+            }, 0);
         },
         removeItems(state, action) {
             const id = action.payload.id
             state.itemsById[id] = state.itemsById[id].filter(pizza =>  pizza.type !== action.payload.type || pizza.size !== action.payload.size)
 
-            state.items = state.items.filter((obj) => obj.uniqId !== action.payload.uniqId);
+            // state.items = state.items.filter((obj) => obj.uniqId !== action.payload.uniqId);
+            state.items = state.items.filter((obj) => obj.id !== action.payload.id || obj.type !== action.payload.type || obj.size !== action.payload.size);
         
             if (state.items.length === 0) {
                 state.itemsById = {};
