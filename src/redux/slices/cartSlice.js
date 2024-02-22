@@ -51,7 +51,7 @@ const cartSlice = createSlice({
 
             if (findItem && findItem.count > 1) {
                 findItem.count--;
-                state.itemsById[id].pop(action.payload);
+                state.itemsById[id].pop(action.payload); //Добавил эту строку, но не совсем правильно
             }
 
             state.totalPrice = state.items.reduce((sum, obj) => {
