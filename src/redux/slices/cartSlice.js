@@ -42,12 +42,16 @@ const cartSlice = createSlice({
             }, 0);
         },
         minusItem(state, action) {
+            const id = action.payload.id;
+
+
             const findItem = state.items.find((obj) => {
                 return obj.id === action.payload.id && obj.type === action.payload.type && obj.size === action.payload.size;
             });
 
             if (findItem && findItem.count > 1) {
                 findItem.count--;
+                state.itemsById[id].pop(action.payload);
             }
 
             state.totalPrice = state.items.reduce((sum, obj) => {
